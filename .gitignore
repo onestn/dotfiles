@@ -3,3 +3,4 @@
 
 # not ignore
 !nvim/
+!nvim/**
