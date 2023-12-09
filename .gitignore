@@ -4,3 +4,5 @@
 # not ignore
 !nvim/
 !nvim/**
+
+.DS_Store
