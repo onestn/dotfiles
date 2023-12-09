@@ -1,1 +1,5 @@
-iterm*/
+at# ignore all files
+*
+
+# not ignore
+!nvim/
