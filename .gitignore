@@ -5,5 +5,5 @@
 !nvim/
 !nvim/**
 
-nvim/lazy-lock.json
+lazy-lock.json
 .DS_Store
