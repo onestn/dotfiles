@@ -14,7 +14,6 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-
 -- import plugins from ./user/plugins/*
 require("lazy").setup({
   {import = "dead-line.plugins"},

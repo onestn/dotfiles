@@ -1,11 +1,9 @@
 -- import .vimrc
 vim.cmd("source ~/.vimrc")
 
-
 -- map leader key to space
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 
 -- set indentation per programming langs
 -- Lua
@@ -27,8 +25,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-
--- import something
+-- import settings
 require("dead-line.core")
 require("dead-line.lazy")
-
+require("dead-line.mappings")
