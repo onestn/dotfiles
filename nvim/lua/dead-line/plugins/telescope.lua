@@ -1,3 +1,4 @@
+-- TODO: Move keymaps to lua/dead-line/mappings.lua
 return {
   "nvim-telescope/telescope.nvim",
   branch = "0.1.x",

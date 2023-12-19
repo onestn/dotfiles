@@ -1,3 +1,4 @@
+-- TODO: Move keymaps to lua/dead-line/mappings.lua
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },

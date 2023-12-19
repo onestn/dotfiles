@@ -22,3 +22,15 @@ keymap.set('n', '<leader>rp', ':RunProject<CR>', { noremap = true, silent = fals
 keymap.set('n', '<leader>rc', ':RunClose<CR>', { noremap = true, silent = false })
 keymap.set('n', '<leader>crf', ':CRFiletype<CR>', { noremap = true, silent = false })
 keymap.set('n', '<leader>crp', ':CRProjects<CR>', { noremap = true, silent = false })
+
+require("copilot").setup({
+  suggestion = {
+    auto_trigger = true,
+    keymap = {
+      next = "<C-j>",
+      prev = "<C-k>",
+      accept = "<C-l>",
+      dismiss = "<C-h>",
+    },
+  }
+})
