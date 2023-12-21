@@ -1,6 +1,10 @@
 -- import .vimrc
 vim.cmd("source ~/.vimrc")
 
+-- import settings
+require("dead-line.lazy")
+require("dead-line.mappings")
+
 -- Map leader key to space
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -24,8 +28,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.expandtab = true
   end,
 })
-
--- import settings
--- TODO: 이 부분을 Map leader key to space 위로 옮기면 안되는 이유는? (순서가 중요한 이유는?)
-require("dead-line.lazy")
-require("dead-line.mappings")
