@@ -1,10 +1,6 @@
 -- import .vimrc
 vim.cmd("source ~/.vimrc")
 
--- import settings
-require("dead-line.lazy")
-require("dead-line.mappings")
-
 -- Map leader key to space
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -28,3 +24,8 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.expandtab = true
   end,
 })
+
+-- import settings
+-- TODO: Why does <leader> not work to change top line to declare
+require("dead-line.lazy")
+require("dead-line.mappings")
