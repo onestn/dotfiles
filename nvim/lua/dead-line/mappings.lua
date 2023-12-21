@@ -15,6 +15,7 @@ keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggl
 keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })
 keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
 
+-- CRAG666/code_runner.nvim
 keymap.set('n', '<leader>r', ':RunCode<CR>', { noremap = true, silent = false })
 keymap.set('n', '<leader>rf', ':RunFile<CR>', { noremap = true, silent = false })
 keymap.set('n', '<leader>rft', ':RunFile tab<CR>', { noremap = true, silent = false })
@@ -23,6 +24,7 @@ keymap.set('n', '<leader>rc', ':RunClose<CR>', { noremap = true, silent = false 
 keymap.set('n', '<leader>crf', ':CRFiletype<CR>', { noremap = true, silent = false })
 keymap.set('n', '<leader>crp', ':CRProjects<CR>', { noremap = true, silent = false })
 
+-- zbirenbaum/copilot.lua
 require("copilot").setup({
   suggestion = {
     auto_trigger = true,

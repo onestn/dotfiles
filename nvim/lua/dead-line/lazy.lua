@@ -7,7 +7,7 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end
@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 -- import plugins from ./user/plugins/*
 require("lazy").setup({
   {import = "dead-line.plugins"},
-  {import = "dead-line.plugins.lsp"}, -- specify plugins/lsp for auto import
+  {import = "dead-line.plugins.lsp"},
 }, {
   install = {
     colorscheme = { "catppuccin" },
