@@ -16,12 +16,10 @@ vim.opt.rtp:prepend(lazypath)
 
 -- import plugins from ./user/plugins/*
 require("lazy").setup({
+  {import = "dead-line.themes"},
   {import = "dead-line.plugins"},
   {import = "dead-line.plugins.lsp"},
 }, {
-  install = {
-    colorscheme = { "catppuccin" },
-  },
   checker = {
     enabled = true,
     notify = false,
@@ -30,3 +28,6 @@ require("lazy").setup({
     notify = false,
   },
 })
+
+-- set theme from ./themes/*
+vim.cmd.colorscheme "catppuccin-mocha"
