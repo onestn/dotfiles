@@ -8,7 +8,7 @@ return {
           "javac $fileName &&",
           "java $fileNameWithoutExt"
         },
-        python = "python3 -u",
+        python = "python -u",
         rust = {
           "cd $dir &&",
           "rustc $fileName &&",
