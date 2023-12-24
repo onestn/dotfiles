@@ -4,7 +4,7 @@ return {
   version = "*",
   config = true,
   opts = {
-    size = 10,
+    size = 15,
     open_mapping = "<C-s>",
   }
 }
