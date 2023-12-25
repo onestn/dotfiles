@@ -27,6 +27,8 @@ keymap.set('n', '<leader>crp', ':CRProjects<CR>', { noremap = true, silent = fal
 -- zbirenbaum/copilot.lua
 require("copilot").setup({
   suggestion = {
+    enabled = true,
+    panel = { enabled = true },
     auto_trigger = true,
     keymap = {
       next = "<C-j>",

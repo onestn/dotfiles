@@ -37,18 +37,23 @@ return {
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
       }),
       -- sources for autocompletion
-
-        { name = "nvim_lsp" },
-        { name = "luasnip" }, -- snippets
-        { name = "buffer" }, -- text within current buffer
-        { name = "path" }, -- file system paths
-      })
-      -- configure lspkind for vs-code like pictograms in completion menu
+      sources = {
+        { name = "copilot", group_index = 1 },
+        { name = "nvim_lsp", group_index = 1 },
+        { name = "luasnip", group_index = 2 }, -- snippets
+        { name = "buffer", group_index = 2 }, -- text within current buffer
+        { name = "path", group_index = 2 }, -- file system paths
+      },
       formatting = {
         format = lspkind.cmp_format({
+          mode = "symbol",
           maxwidth = 50,
           ellipsis_char = "...",
+          symbol_map = {
+            Copilot = "",
+          }
         }),
-      }
+      },
+    })
   end,
 }
