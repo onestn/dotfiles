@@ -7,7 +7,7 @@ vim.cmd("source ~/.vimrc")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Set indentation per programming langs
+-- Set some settings per programming language
 -- Lua
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "lua",
