@@ -8,12 +8,15 @@ My file structre is as follows.
 ```
 ../.config/nvim
 ├── init.lua
-└── lua
-   └── dead-line
+└── lua/
+   └── dead-line/
       ├── lazy.lua
       ├── mappings.lua
-      └── plugins
-         └── "some-plugins in here with end .lua"
+      └── plugins/
+         ├── lsp/
+         |  ├── lspconfig.lua
+         |  └── mason.lua
+         └── themes/
 ```
  
 ## TODO List
