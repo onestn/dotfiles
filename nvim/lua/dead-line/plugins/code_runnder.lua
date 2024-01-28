@@ -14,6 +14,7 @@ return {
           "rustc $fileName &&",
           "$dir/$fileNameWithoutExt"
         },
+        lua = "lua",
       },
     })
   end,
