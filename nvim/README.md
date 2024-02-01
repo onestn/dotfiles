@@ -23,3 +23,6 @@ My file structre is as follows.
 - [ ] [Read Neovim Document](https://neovim.io/doc/user/)
 - [ ] Why does <leader> not work to change top line to declare
 - [ ] 현재 내 PDE init 동작 과정에 대해서 간략히 정리하기
+
+## Plugins
+- [ ] nvim-dap for debugging
