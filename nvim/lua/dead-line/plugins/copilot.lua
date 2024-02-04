@@ -5,7 +5,7 @@ return {
   config = function()
     require("copilot").setup({
       filetypes = {
-        python = false,
+        python = true,
       }
     })
   end,
