@@ -1,12 +1,12 @@
-return {
-  "zbirenbaum/copilot.lua",
-  cmd = "Copilot",
-  event = "InsertEnter",
-  config = function()
-    require("copilot").setup({
-      filetypes = {
-        python = true,
-      }
-    })
-  end,
-}
+-- return {
+--   "zbirenbaum/copilot.lua",
+--   cmd = "Copilot",
+--   event = "InsertEnter",
+--   config = function()
+--     require("copilot").setup({
+--       filetypes = {
+--         python = true,
+--       }
+--     })
+--   end,
+-- }
