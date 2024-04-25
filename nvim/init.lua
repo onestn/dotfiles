@@ -1,4 +1,9 @@
-USER_PROFILE = "dead-line"
+if vim.g.vscode then
+  print("Neovim is running inside VSCode")
+  USER_PROFILE = "vscode"
+else
+  USER_PROFILE = "dead-line"
+end
 
 -- import .vimrc
 vim.cmd("source ~/.vimrc")
@@ -8,6 +13,5 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- import settings
--- TODO: Why does <leader> not work to change top line to declare
 require(USER_PROFILE .. ".lazy")
 require(USER_PROFILE .. ".mappings")
