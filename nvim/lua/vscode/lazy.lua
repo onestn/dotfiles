@@ -15,14 +15,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- import plugins from ./user/plugins/*
-require("lazy").setup({
-  {import = "vscode.plugins"},
-}, {
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
-  },
-})
+-- require("lazy").setup({
+--   {import = "vscode.plugins"},
+-- }, {
+--   checker = {
+--     enabled = true,
+--     notify = false,
+--   },
+--   change_detection = {
+--     notify = false,
+--   },
+-- })
