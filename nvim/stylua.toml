@@ -1,3 +1,4 @@
 indent_type = "Spaces"
+# for lua
 indent_width = 2
 column_width = 120
