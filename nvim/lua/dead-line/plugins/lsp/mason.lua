@@ -25,6 +25,7 @@ return {
       ensure_installed = {
         "lua_ls",
         "pyright",
+        "rust_analyzer"
       },
       automatic_installation = true, -- not the same as ensure_installed
     })
@@ -35,5 +36,6 @@ return {
         "black", -- python formatter
       },
     })
+
   end,
 }
