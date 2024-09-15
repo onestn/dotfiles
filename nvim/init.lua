@@ -1,5 +1,5 @@
 if vim.g.vscode then
-    USER_PROFILE = "vscode"
+    USER_PROFILE = "vscode-neovim"
 else
     USER_PROFILE = "dead-line"
 end
