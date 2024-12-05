@@ -6,7 +6,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 if vim.g.vscode then
-  USER_PROFILE = "vscode-neovim"
+  USER_PROFILE = "vscode"
 else
   USER_PROFILE = "dead-line"
 end

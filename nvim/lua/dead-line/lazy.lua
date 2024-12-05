@@ -1,4 +1,4 @@
-require("vscode-neovime.lazy").setup({
+require("lazy").setup({
   { import = "dead-line.plugins" },
   { import = "dead-line.plugins.lsp" },
   { import = "dead-line.plugins.themes" }
