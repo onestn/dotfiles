@@ -9,7 +9,7 @@ My file structre is as follows.
 ../.config/nvim
 ├── init.lua
 └── lua/
-   └── dead-line/
+   └── USER_PROFILE/
       ├── lazy.lua
       ├── mappings.lua
       └── plugins/
