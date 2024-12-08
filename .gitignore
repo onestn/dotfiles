@@ -1,0 +1,12 @@
+# ignore all files
+*
+
+# not ignore
+!nvim/
+!nvim/**
+!nvim-vscode/
+!nvim-vscode/**
+
+# ignore specific files
+nvim/lazy-lock.json
+.DS_Store
