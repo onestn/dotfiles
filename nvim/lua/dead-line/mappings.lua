@@ -42,4 +42,4 @@ vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", { noremap = true, silent =
 -- vim.keymap.set('i', '<C-something>', '<Cmd>lua require("copilot").accept()<CR>', { noremap = true, silent = true })
 
 -- Dismiss Noice Message
-vim.vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice Message"})
+vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice Message"})
