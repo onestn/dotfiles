@@ -43,3 +43,6 @@ vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", { noremap = true, silent =
 
 -- Dismiss Noice Message
 vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice Message"})
+
+-- jackMort/ChatGPT
+vim.keymap.set("n", "<leader>oc", ":ChatGPT<CR>")
