@@ -1,7 +1,7 @@
 require("lazy").setup({
-  { import = "dead-line.plugins" },
-  { import = "dead-line.plugins.lsp" },
-  { import = "dead-line.plugins.themes" }
+  { import = "plugins" },
+  { import = "plugins.lsp" },
+  { import = "plugins.themes" }
 }, {
   checker = {
     enabled = true,

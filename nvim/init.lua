@@ -10,12 +10,6 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 
-if vim.g.vscode then
-  USER_PROFILE = "vscode"
-else
-  USER_PROFILE = "dead-line"
-end
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -31,5 +25,5 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require(USER_PROFILE .. ".lazy")
-require(USER_PROFILE .. ".mappings")
+require("config.lazy")
+require("config.mappings")

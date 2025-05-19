@@ -6,17 +6,18 @@ Dotfiles about Neovim configuration
 This folder include own setting files about Neovim to make PDE(Personalized Development Environment). And you can also view on this file to my nvim file structure
 
 ## File Structure of Neovim
-Structre is as follows.
+Structre is as follows(Like LazyVim Style)
 ```
-../.config/nvim
-├── init.lua
-└── lua/
-   └── USER_PROFILE/
-      ├── lazy.lua
-      ├── mappings.lua
-      └── plugins/
-         ├── lsp/
-         |  ├── lspconfig.lua
-         |  └── mason.lua
-         └── themes/
+~/.config/nvim
+├── lua
+│   ├── config
+│   │   ├── autocmds.lua
+│   │   ├── keymaps.lua
+│   │   ├── lazy.lua
+│   │   └── options.lua
+│   └── plugins
+│       ├── spec1.lua
+│       ├── **
+│       └── spec2.lua
+└── init.lua
 ```
