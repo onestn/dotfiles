@@ -16,8 +16,8 @@ Structre is as follows(Like LazyVim Style)
 │   │   ├── lazy.lua
 │   │   └── options.lua
 │   └── plugins
-│       ├── spec1.lua
+│       ├── pluginA.lua
 │       ├── **
-│       └── spec2.lua
+│       └── pluginZ.lua
 └── init.lua
 ```

@@ -37,10 +37,6 @@ vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", { noremap = true, silent =
 --   }
 -- })
 
-
--- 특정 플러그인의 특정 기능을 매핑할 때는, 플러그인의 키맵 함수를 사용해야 한다.
--- vim.keymap.set('i', '<C-something>', '<Cmd>lua require("copilot").accept()<CR>', { noremap = true, silent = true })
-
 -- Dismiss Noice Message
 vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice Message"})
 
