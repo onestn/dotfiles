@@ -5,6 +5,5 @@ return {
   config = true,
   opts = {
     size = 20,
-    open_mapping = "<C-s>",
   }
 }
