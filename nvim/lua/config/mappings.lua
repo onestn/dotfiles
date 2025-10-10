@@ -22,21 +22,6 @@ vim.keymap.set("n", "<leader>rc", ":RunClose<CR>", { noremap = true, silent = fa
 vim.keymap.set("n", "<leader>crf", ":CRFiletype<CR>", { noremap = true, silent = false })
 vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", { noremap = true, silent = false })
 
--- -- zbirenbaum/copilot.lua
--- require("copilot").setup({
---   suggestion = {
---     enabled = true,
---     panel = { enabled = true },
---     auto_trigger = true,
---     vim.keymap = {
---       next = "<C-j>",
---       prev = "<C-k>",
---       accept = "<C-l>",
---       dismiss = "<C-h>",
---     },
---   }
--- })
-
 -- Dismiss Noice Message
 vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice Message"})
 

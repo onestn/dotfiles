@@ -38,11 +38,6 @@ return {
       dashboard.button("c", "6  Configuration", ":e $MYVIMRC<CR>"),
       dashboard.button("q", "7  Quit Neovim", ":qa<CR>"),
     }
-    local handle = io.popen('fortune')
-    local fortune = handle:read("*a")
-    handle:close()
-
-    dashboard.section.footer.val = fortune
     dashboard.config.opts.noautocmd = true
 
     vim.cmd[[autocmd User AlphaReady echo 'ready']]

@@ -1,5 +1,11 @@
+pcall(function()
+  vim.api.nvim_create_augroup("FileExplorer", { clear = true })
+end)
+
 -- import .vimrc
 vim.cmd("source ~/.vimrc")
+
+vim.opt.encoding = "utf-8"
 
 -- Map leader key to space
 vim.g.mapleader = " "
@@ -7,7 +13,6 @@ vim.g.maplocalleader = " "
 
 -- Set clipboard
 vim.opt.clipboard = "unnamedplus"
-
 local ok, osc52 = pcall(require, "vim.ui.clipboard.osc52")
 if ok then
   vim.g.clipboard = {
@@ -23,18 +28,16 @@ if ok then
   }
 end
 
-
-
 -- Set default format
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.autoindent = true
-vim.opt.smartindent = true
+-- vim.opt.tabstop = 4
+-- vim.opt.shiftwidth = 4
+-- vim.opt.expandtab = true
+-- vim.opt.autoindent = true
+-- vim.opt.smartindent = true
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
