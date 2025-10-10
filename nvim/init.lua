@@ -5,6 +5,27 @@ vim.cmd("source ~/.vimrc")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Set clipboard
+vim.opt.clipboard = "unnamedplus"
+
+local ok, osc52 = pcall(require, "vim.ui.clipboard.osc52")
+if ok then
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = osc52.copy("+"),
+      ["*"] = osc52.copy("*"),
+    },
+    paste = {
+      ["+"] = osc52.paste("+"),
+      ["*"] = osc52.paste("*"),
+    },
+  }
+end
+
+
+
+-- Set default format
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true

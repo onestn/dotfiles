@@ -1,52 +1,50 @@
-{
-  "hkupty/iron.nvim",
+return {
+  "Vigemus/iron.nvim",
+  -- REPL 쓸 파일타입에서만 로드(원하면 더 추가)
+  ft = { "python", "lua", "sh", "rust", "scala", "zig" },
   config = function()
     local iron = require("iron.core")
-
     iron.setup({
+      -- 핵심 동작 설정
       config = {
-        -- Whether a repl should be discarded or not
-        scratch_repl = true,
-        -- Your repl definitions come here
+        -- 각 언어별 REPL 실행 커맨드(사내 경로로 바꿔도 됨)
         repl_definition = {
-          sh = {
-            -- Can be a table or a function that
-            -- returns a table (see below)
-            command = { "zsh" },
-          },
+          python = { command = { "python" } },      -- or {"ipython", "--no-autoindent"}
+          lua    = { command = { "lua" } },
+          sh     = { command = { "bash" } },        -- zsh 등으로 변경 가능
         },
-        -- How the repl window will be displayed
-        -- See below for more information
-        repl_open_cmd = require("iron.view").bottom(40),
+        -- REPL 창 여는 방식(세로 split, 아래쪽 40%)
+        repl_open_cmd = require("iron.view").split.vertical.botright(0.4),
+        -- 기본으로 쓸 REPL 우선순위(선택)
+        preferred = { "python", "lua", "sh" },
       },
-      -- Iron doesn't set keymaps by default anymore.
-      -- You can set them here or manually add keymaps to the functions in iron.core
+      -- 하이라이트(선택)
+      highlight = { italic = true },
+      -- 빈 줄은 전송 안 함
+      ignore_blank_lines = true,
+      -- iron 자체 키맵(원하는 대로 바꿔)
       keymaps = {
-        send_motion = "<space>sc",
-        visual_send = "<space>sc",
-        send_file = "<space>sf",
-        send_line = "<space>sl",
-        send_mark = "<space>sm",
-        mark_motion = "<space>mc",
-        mark_visual = "<space>mc",
-        remove_mark = "<space>md",
-        cr = "<space>s<cr>",
-        interrupt = "<space>s<space>",
-        exit = "<space>sq",
-        clear = "<space>cl",
+        send_motion  = "<leader>sc",
+        visual_send  = "<leader>sc",
+        send_line    = "<leader>sl",
+        send_paragraph = "<leader>sp",
+        send_file    = "<leader>sf",
+        cr           = "<leader>s<cr>",
+        interrupt    = "<leader>si",
+        exit         = "<leader>sq",
+        clear        = "<leader>sk",
       },
-      -- If the highlight is on, you can change how it looks
-      -- For the available options, check nvim_set_hl
-      highlight = {
-        italic = true,
-      },
-      ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
     })
 
-    -- iron also has a list of commands, see :h iron-commands for all available commands
-    vim.keymap.set("n", "<space>rs", "<cmd>IronRepl<cr>")
-    vim.keymap.set("n", "<space>rr", "<cmd>IronRestart<cr>")
-    vim.keymap.set("n", "<space>rf", "<cmd>IronFocus<cr>")
-    vim.keymap.set("n", "<space>rh", "<cmd>IronHide<cr>")
+    -- 편의: REPL 토글/포커스용 명령 키맵(iron API 직접 호출)
+    vim.keymap.set("n", "<leader>sr", function()
+      require("iron.core").repl_for(vim.bo.filetype)   -- 현재 ft에 맞는 REPL 생성/재사용
+      require("iron.core").focus_on("last")            -- 방금 연 REPL로 포커스
+    end, { desc = "REPL open/focus" })
+
+    vim.keymap.set("n", "<leader>sh", function()
+      require("iron.core").hide_repl()
+    end, { desc = "REPL hide" })
   end,
-},
+}
+

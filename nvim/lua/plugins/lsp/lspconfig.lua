@@ -9,7 +9,6 @@ return {
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local on_attach = function(_, bufnr)
@@ -24,8 +23,6 @@ return {
       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Smart rename" }))
       vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", vim.tbl_extend("force", opts, { desc = "Show buffer diagnostics" }))
       vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, vim.tbl_extend("force", opts, { desc = "Show line diagnostics" }))
-      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, vim.tbl_extend("force", opts, { desc = "Go to previous diagnostic" }))
-      vim.keymap.set("n", "]d", vim.diagnostic.goto_next, vim.tbl_extend("force", opts, { desc = "Go to next diagnostic" }))
       vim.keymap.set("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Show documentation for what is under cursor" }))
       vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", vim.tbl_extend("force", opts, { desc = "Restart LSP" }))
     end
@@ -45,15 +42,15 @@ return {
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
-    
+
     -- Python
-    lspconfig["ruff"].setup({
+    vim.lsp.config.ruff = {
       capabilities = capabilities,
       on_attach = on_attach,
-    })
+    }
 
     -- Lua
-    lspconfig["lua_ls"].setup({
+    vim.lsp.config.lua_ls = {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = {
@@ -70,12 +67,11 @@ return {
           },
         },
       },
-    })
+    }
 
     -- Rust
-    lspconfig["rust_analyzer"].setup({
+    vim.lsp.config.rust_analyzer = {
       single_file_support = true,
-      root_dir = lspconfig.util.root_pattern("Cargo.toml", ".git"),
       on_attach = on_attach,
       capabilities = capabilities,
       settings = {
@@ -92,6 +88,6 @@ return {
           },
         },
       },
-    })
+    }
   end,
 }

@@ -42,3 +42,6 @@ vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noic
 
 -- jackMort/ChatGPT
 vim.keymap.set("n", "<leader>oc", ":ChatGPT<CR>")
+
+-- diagnostics
+vim.keymap.set('n', 'gl', function() vim.diagnostic.open_float(0, {scope='line'}) end, { silent = true, desc = "Show diagnostics" })
