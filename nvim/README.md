@@ -9,12 +9,11 @@ This folder include own setting files about Neovim to make PDE(Personalized Deve
 Structre is as follows(Like LazyVim Style)
 ```
 ~/.config/nvim
+├── after/
+|   └── ftplugin/
+│       ├── rust.lua
+│       └── python.lua
 ├── lua/
-│   ├── after/
-│   |   ├── ftplugin/
-│   │   ├── a.lua
-│   |   ├── **
-│   │   └── z.lua
 │   ├── config/
 │   │   ├── lazy.lua
 │   │   ├── keymaps.lua
@@ -23,8 +22,8 @@ Structre is as follows(Like LazyVim Style)
 │       ├── lsp/
 │       |   ├── lspconfig.lua
 │       |   └── mason.lua
-│       └── themes/
-│           └── catppuccin.lua
+│       ├── themes/
+│       |   └── catppuccin.lua
 │       ├── pluginA.lua
 │       ├── **
 │       └── pluginZ.lua
