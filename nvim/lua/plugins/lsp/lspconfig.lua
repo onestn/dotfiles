@@ -1,6 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
-  event = { -- Quick loading
+  event = {
     "BufReadPre",
     "BufNewFile"
   },
@@ -26,7 +26,6 @@ return {
       vim.keymap.set("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Show documentation for what is under cursor" }))
       vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", vim.tbl_extend("force", opts, { desc = "Restart LSP" }))
     end
-
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
 

@@ -1,15 +1,19 @@
-require("lazy").setup({
+local plugin_specs = {
   { import = "plugins" },
+  -- { import = "plugins.ui" },
   { import = "plugins.lsp" },
-  { import = "plugins.themes" }
-}, {
+  { import = "plugins.themes" },
+}
+
+local lazy_opts = {
+  defaults = { lazy = true },
   checker = {
     enabled = true,
-    notify = false
+    notify = false,
   },
   change_detection = { notify = false },
-})
+}
 
-vim.cmd[[colorscheme catppuccin-mocha]]
--- vim.cmd[[colorscheme tokyonight-night]]
--- vim.cmd[[colorscheme tokyodark]]
+require("lazy").setup(plugin_specs, lazy_opts)
+
+vim.cmd.colorscheme("catppuccin-mocha")

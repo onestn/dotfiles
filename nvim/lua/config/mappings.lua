@@ -1,32 +1,63 @@
--- nvim-telescope/telescope.nvim
-vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Fuzzy find files in cwd" })
-vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "Fuzzy find recent files" })
-vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<CR>", { desc = "Find string in cwd" })
-vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<CR>", { desc = "Find string under cursor in cwd" })
+-- mapping helper
+local function map(lhs, desc, fn)
+  desc = (desc and #desc > 0) and desc or "No description"
+  vim.keymap.set("n", lhs, fn, { desc = desc, silent = true })
+end
+
+-- nvim-telescope/telescope
+map("<leader>ff", "Fuzzy find files in cwd", "<cmd>Telescope find_files<CR>")
+map("<leader>fr", "Fuzzy find recent files", "<cmd>Telescope oldfiles<CR>")
+map("<leader>fs", "Find string in cwd", "<cmd>Telescope live_grep<CR>")
+map("<leader>fc", "Find string under cursor in cwd", "<cmd>Telescope grep_string<CR>")
 
 -- szw/vim-maximizer
-vim.keymap.set("n", "<leader>sm", "<cmd>MaximizerToggle<CR>", { desc = "Maximize/minimize a split" })
+map("<leader>sm", "Maximize/minimize a split", "<cmd>MaximizerToggle<CR>")
 
 -- nvim-tree/nvim-tree.lua
-vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
-vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" })
-vim.keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })
-vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
+map("<leader>ee", "Toggle nvim-tree", function()
+  require("nvim-tree.api").tree.toggle({ focus = true })
+end)
+map("<leader>ef", "Toggle on current file", function()
+  require("nvim-tree.api").tree.toggle({ find_file = true, focus = true })
+end)
+map("<leader>ec", "Collapses nvim-tree(keep open buffer)", function()
+  require("nvim-tree.api").tree.collapse_all({ keep_buffers = true })
+end)
+map("<leader>er", "Refresh nvim-tree", function()
+  require("nvim-tree.api").tree.reload()
+end)
 
 -- CRAG666/code_runner.nvim
-vim.keymap.set("n", "<leader>r", ":RunCode<CR>", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>rft", ":RunFile tab<CR>", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>rp", ":RunProject<CR>", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>rc", ":RunClose<CR>", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>crf", ":CRFiletype<CR>", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", { noremap = true, silent = false })
+map("<leader>rr", "Run code", function() 
+  require("code_runner").run_code() 
+end)
+map("<leader>rf", "Run file", function() 
+  require("code_runner").run_from_fn() 
+end)
+map("<leader>rft", "Run file tab", function() 
+  require("code_runner").run_filetype() 
+end)
+map("<leader>rp", "Run project", function() 
+  require("code_runner").run_project() 
+end)
+map("<leader>rc", "Run close", function() 
+  require("code_runner").run_close() 
+end)
+map("<leader>crf", "Gee command for this filetype", function() 
+  require("code_runner").get_filetype_command() 
+end)
+map("<leader>crp", "Get command for this project", function()
+  require("code_runner").get_project_command() 
+end)
 
 -- Dismiss Noice Message
-vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice Message"})
+map("<leader>nd", "Dismiss Noice Message", "<cmd>NoiceDismiss<CR>")
 
 -- jackMort/ChatGPT
-vim.keymap.set("n", "<leader>oc", ":ChatGPT<CR>")
+map("<leader>oc", "Open ChatGPT Window", ":ChatGPT<CR>")
 
 -- diagnostics
-vim.keymap.set('n', 'gl', function() vim.diagnostic.open_float(0, {scope='line'}) end, { silent = true, desc = "Show diagnostics" })
+map("gl", "Show diagnostic", function() 
+  vim.diagnostic.open_float(0, { scope = "line" }) 
+end)
+

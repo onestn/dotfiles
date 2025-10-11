@@ -1,4 +1,3 @@
--- TODO: Move ensure_installed to some other file that has to do with plugin list(!IT HAS JUST A PACKAGE LIST!)
 return {
   "williamboman/mason.nvim",
   dependencies = {
