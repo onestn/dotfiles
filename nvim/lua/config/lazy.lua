@@ -1,6 +1,6 @@
 local plugin_specs = {
   { import = "plugins" },
-  -- { import = "plugins.ui" },
+  { import = "plugins.ui" },
   { import = "plugins.lsp" },
   { import = "plugins.themes" },
 }

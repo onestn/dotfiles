@@ -1,4 +1,3 @@
--- TODO: Move keymaps to lua/dead-line/mappings.lua
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
@@ -38,8 +37,8 @@ return {
       }),
       -- sources for autocompletion
       sources = {
-        { name = "copilot", group_index = 1 },
         { name = "nvim_lsp", group_index = 1 },
+        { name = "copilot", group_index = 1 },
         { name = "luasnip", group_index = 2 }, -- snippets
         { name = "buffer", group_index = 2 }, -- text within current buffer
         { name = "path", group_index = 2 }, -- file system paths

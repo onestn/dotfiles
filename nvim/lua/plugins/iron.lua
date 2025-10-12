@@ -16,22 +16,11 @@ return {
       },
       highlight = { italic = true },
       ignore_blank_lines = true,
-      keymaps = {
-        send_motion    = "<leader>sc",
-        visual_send    = "<leader>sc",
-        send_line      = "<leader>sl",
-        send_paragraph = "<leader>sp",
-        send_file      = "<leader>sf",
-        cr             = "<leader>s<cr>",
-        interrupt      = "<leader>si",
-        exit           = "<leader>sq",
-        clear          = "<leader>sk",
-      },
     })
 
     vim.keymap.set("n", "<leader>sr", function()
-      require("iron.core").repl_for(vim.bo.filetype)   -- 현재 ft에 맞는 REPL 생성/재사용
-      require("iron.core").focus_on("last")            -- 방금 연 REPL로 포커스
+      require("iron.core").repl_for(vim.bo.filetype)
+      require("iron.core").focus_on("last")
     end, { desc = "REPL open/focus" })
 
     vim.keymap.set("n", "<leader>sh", function()
