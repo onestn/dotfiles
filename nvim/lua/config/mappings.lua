@@ -99,6 +99,13 @@ vim.keymap.set("v", "<leader>sc", function()
   require("iron.core").visual_send()
 end, { desc = "Iron: Send motion with VISUAL", silent = true })
 
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+  vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { buffer = true })
+end
+})
+
 map("<leader>sl", "Send line", function()
   require("iron.core").send_line()
 end, PLUGIN)
@@ -125,6 +132,15 @@ end, PLUGIN)
 
 map("<leader>sk", "Clear", function()
   require("iron.core").send(nil, string.char(12))
+end, PLUGIN)
+
+map("<leader>sr", "Open/Focus REPL", function()
+  require("iron.core").repl_for(vim.bo.filetype)
+  require("iron.core").focus_on("last")
+end, PLUGIN)
+
+map("<leader>sh", "Hide REPL", function()
+  require("iron.core").hide_repl()
 end, PLUGIN)
 
 -- =======================================================

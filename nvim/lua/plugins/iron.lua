@@ -17,23 +17,6 @@ return {
       highlight = { italic = true },
       ignore_blank_lines = true,
     })
-
-    vim.keymap.set("n", "<leader>sr", function()
-      require("iron.core").repl_for(vim.bo.filetype)
-      require("iron.core").focus_on("last")
-    end, { desc = "REPL open/focus" })
-
-    vim.keymap.set("n", "<leader>sh", function()
-      require("iron.core").hide_repl()
-    end, { desc = "REPL hide" })
-
-    vim.api.nvim_create_autocmd("TermOpen", {
-      pattern = "*",
-      callback = function()
-      vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { buffer = true })
-    end
-    })
-
   end,
 }
 
