@@ -9,7 +9,7 @@ return {
           python = { command = { "ipython", "--no-autoindent" } },
           lua    = { command = { "lua" } },
           sh     = { command = { "zsh" } },
-	  rust   = { command = { "evcxr" } },
+	        rust   = { command = { "evcxr" } },
         },
         repl_open_cmd = require("iron.view").split.vertical.botright(0.4),
         preferred = { "python", "lua", "sh", "rust" },
