@@ -5,6 +5,17 @@ vim.g.maplocalleader = " "
 -- clipboard(OSC52)
 local ok, osc52 = pcall(require, "vim.ui.clipboard.osc52")
 if ok then
+  local function clean_paste(register)
+    local content = osc52.paste(register)
+    return function()
+      local lines = content()
+      for i, line in ipairs(lines) do
+        lines[i] = line:gsub("\r", "") -- Remove ^M
+      end
+      return lines
+    end
+  end
+  
   vim.g.clipboard = {
     name = "OSC 52",
     copy = {
@@ -12,8 +23,8 @@ if ok then
       ["*"] = osc52.copy("*"),
     },
     paste = {
-      ["+"] = osc52.paste("+"),
-      ["*"] = osc52.paste("*"),
+      ["+"] = clean_paste("+"),
+      ["*"] = clean_paste("*"),
     },
   }
 end
