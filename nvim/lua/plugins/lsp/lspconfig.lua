@@ -48,26 +48,26 @@ return {
       on_attach = on_attach,
     }
 
-    -- Lua
-    vim.lsp.config.lua_ls = {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim" },
-          },
-          workspace = {
-            -- make language server aware of runtime files
-            library = {
-              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-              [vim.fn.stdpath("config") .. "/lua"] = true,
-            },
-          },
-        },
-      },
-    }
-
+    -- -- Lua
+    -- vim.lsp.config.lua_ls = {
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    --   settings = {
+    --     Lua = {
+    --       diagnostics = {
+    --         globals = { "vim" },
+    --       },
+    --       workspace = {
+    --         -- make language server aware of runtime files
+    --         library = {
+    --           [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+    --           [vim.fn.stdpath("config") .. "/lua"] = true,
+    --         },
+    --       },
+    --     },
+    --   },
+    -- }
+    --
     -- Rust
     vim.lsp.config.rust_analyzer = {
       single_file_support = true,
