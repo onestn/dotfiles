@@ -15,12 +15,6 @@ map("<leader>ff", "Find files", function()
 end, PLUGIN)
 
 -- =======================================================
--- szw/vim-maximizer: Window manager
--- =======================================================
-local PLUGIN = "Maximizer"
-map("<leader>sm", "Toggle maximizer", "<cmd>MaximizerToggle<CR>", PLUGIN)
-
--- =======================================================
 -- nvim-tree/nvim-tree: 
 -- =======================================================
 local PLUGIN = "NvimTree"

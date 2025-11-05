@@ -3,19 +3,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- clipboard(OSC52)
+-- Use OSC52 for copy only (paste via OSC52 can be slow in some terminals like Blink Shell)
 local ok, osc52 = pcall(require, "vim.ui.clipboard.osc52")
 if ok then
-  local function clean_paste(register)
-    local content = osc52.paste(register)
-    return function()
-      local lines = content()
-      for i, line in ipairs(lines) do
-        lines[i] = line:gsub("\r", "") -- Remove ^M
-      end
-      return lines
-    end
-  end
-  
   vim.g.clipboard = {
     name = "OSC 52",
     copy = {
@@ -23,8 +13,8 @@ if ok then
       ["*"] = osc52.copy("*"),
     },
     paste = {
-      ["+"] = clean_paste("+"),
-      ["*"] = clean_paste("*"),
+      ["+"] = function() return vim.fn.getreg("+") end,
+      ["*"] = function() return vim.fn.getreg("*") end,
     },
   }
 end
