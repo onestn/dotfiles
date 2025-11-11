@@ -4,8 +4,14 @@ return {
     -- add any options here
     cli = {
       mux = {
-        backend = "zellij",
+        backend = "tmux",
         enabled = true,
+      },
+      tools = {
+        claude = {
+          cmd = { "claude" },
+          desc = "Claude Code - Anthropic's AI coding assistant",
+        },
       },
     },
   },

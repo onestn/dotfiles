@@ -3,7 +3,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- clipboard(OSC52)
--- Use OSC52 for copy only (paste via OSC52 can be slow in some terminals like Blink Shell)
 local ok, osc52 = pcall(require, "vim.ui.clipboard.osc52")
 if ok then
   vim.g.clipboard = {
