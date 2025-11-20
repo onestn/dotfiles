@@ -11,6 +11,21 @@ return {
   config = function()
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
+      vim.diagnostic.config({
+      virtual_text = true,
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = " ",
+          [vim.diagnostic.severity.WARN]  = " ",
+          [vim.diagnostic.severity.HINT]  = "󰠠 ",
+          [vim.diagnostic.severity.INFO]  = " ",
+        },
+      },
+      underline = true,
+      update_in_insert = false,
+      severity_sort = true,
+    })
+
     local on_attach = function(_, bufnr)
       local opts = { noremap = true, silent = true, buffer = bufnr }
       vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", vim.tbl_extend("force", opts, { desc = "Show LSP references" }))
@@ -26,67 +41,40 @@ return {
       vim.keymap.set("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Show documentation for what is under cursor" }))
       vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", vim.tbl_extend("force", opts, { desc = "Restart LSP" }))
     end
-    -- used to enable autocompletion (assign to every lsp server config)
+
     local capabilities = cmp_nvim_lsp.default_capabilities()
-
-    -- Change the Diagnostic symbols in the sign column (gutter)
-    local signs = {
-      Error = " ",
-      Warn = " ",
-      Hint = "󰠠 ",
-      Info = " "
-    }
-
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
-
-    -- Python
-    vim.lsp.config.ruff = {
+    
+    vim.lsp.config('pylsp', {
       capabilities = capabilities,
       on_attach = on_attach,
-    }
-
-    -- -- Lua
-    -- vim.lsp.config.lua_ls = {
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    --   settings = {
-    --     Lua = {
-    --       diagnostics = {
-    --         globals = { "vim" },
-    --       },
-    --       workspace = {
-    --         -- make language server aware of runtime files
-    --         library = {
-    --           [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-    --           [vim.fn.stdpath("config") .. "/lua"] = true,
-    --         },
-    --       },
-    --     },
-    --   },
-    -- }
-    --
-    -- Rust
-    vim.lsp.config.rust_analyzer = {
-      single_file_support = true,
-      on_attach = on_attach,
-      capabilities = capabilities,
       settings = {
-        ["rust-analyzer"] = {
-          assist = {
-            importGranularity = "module",
-            importPrefix = "by_self",
-          },
-          cargo = {
-            allFeatures = true,
-          },
-          procMacro = {
+        pylsp = {
+          pycodestyle = { enabled = false },
+          pyflakes = { enabled = false },
+          mccabe = { enabled = false },
+          pylint = { enabled = false },
+          yapf = { enabled = false },
+          autopep8 = { enabled = false },
+        },
+      },
+    })
+    vim.lsp.enable('pylsp')
+
+    vim.lsp.config('ruff', {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      init_options = {
+        settings = {
+          lint = {
             enable = true,
+            ignore = {
+              "F403",
+              "F405",
+            },
           },
         },
       },
-    }
+    })
+    vim.lsp.enable('ruff')
   end,
 }

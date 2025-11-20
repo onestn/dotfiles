@@ -137,6 +137,17 @@ map("<leader>sh", "Hide REPL", function()
   require("iron.core").hide_repl()
 end, PLUGIN)
 
+
+-- =======================================================
+-- declancm/maximize.nvim: Window maximize toggle
+-- =======================================================
+local PLUGIN = "Maximize"
+
+map("<leader>m", "Toggle maximize", function()
+  require("maximize").toggle()
+end, PLUGIN)
+
+
 -- =======================================================
 -- CUSTOM MAPPINGS
 -- =======================================================
