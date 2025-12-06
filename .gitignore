@@ -4,8 +4,8 @@
 # not ignore
 !nvim/
 !nvim/**
-!nvim-vscode/
-!nvim-vscode/**
+!wezterm/
+!wezterm/**
 
 # ignore specific files
 nvim/lazy-lock.json
