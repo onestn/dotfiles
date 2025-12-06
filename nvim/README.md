@@ -15,17 +15,15 @@ Structre is as follows(Like LazyVim Style)
 │       └── python.lua
 ├── lua/
 │   ├── config/
+│   │   ├── lsp.lua
 │   │   ├── lazy.lua
 │   │   ├── keymaps.lua
 │   │   └── options.lua
 │   └── plugins/
-│       ├── lsp/
-│       |   ├── lspconfig.lua
-│       |   └── mason.lua
 │       ├── themes/
 │       |   └── catppuccin.lua
-│       ├── pluginA.lua
-│       ├── **
-│       └── pluginZ.lua
+│       ├── lsp.lua
+│       ├── mason.lua
+│       └── plugins.lua
 └── init.lua
 ```

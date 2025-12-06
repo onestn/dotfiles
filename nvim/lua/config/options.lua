@@ -1,12 +1,10 @@
-local opt = vim.opt
-
-opt.encoding = "utf-8"
-opt.clipboard = "unnamedplus"
-opt.number = true
-opt.showcmd = true
-opt.ruler = true
-opt.termguicolors = true
-opt.cursorline = true
-opt.relativenumber = false
-opt.ignorecase = true
-opt.smartcase = true
+vim.opt.encoding = "utf-8"
+vim.opt.clipboard = "unnamedplus"
+vim.opt.number = true
+vim.opt.showcmd = true
+vim.opt.ruler = true
+vim.opt.termguicolors = true
+vim.opt.cursorline = true
+vim.opt.relativenumber = false
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
