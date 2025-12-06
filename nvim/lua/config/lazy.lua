@@ -14,4 +14,11 @@ local lazy_opts = {
 }
 require("lazy").setup(plugin_specs, lazy_opts)
 
+do
+  local mason_bin = vim.fn.stdpath("data") .. "/mason/bin"
+  if not vim.env.PATH:find(mason_bin, 1, true) then
+    vim.env.PATH = mason_bin .. ":" .. vim.env.PATH
+  end
+end
+
 vim.cmd.colorscheme("catppuccin-mocha")

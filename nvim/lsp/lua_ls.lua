@@ -3,11 +3,11 @@ local lsp = require("config.lsp")
 return {
   cmd = { "lua-language-server" },
   filetypes = { "lua" },
-  root_markers = { 
+  root_markers = {
     { ".luarc.json", ".luarc.jsonc" },
-    ".git" 
+    ".git"
   },
-  
+
   settings = {
     Lua = {
       runtime = {
