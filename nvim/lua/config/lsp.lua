@@ -8,12 +8,12 @@ end
 M.capabilities = capabilities
 
 function M.on_attach(_, bufnr)
-  local opts = { 
-    noremap = true, 
-    silent = true, 
-    buffer = bufnr 
+  local opts = {
+    noremap = true,
+    silent = true,
+    buffer = bufnr
   }
-  
+
   -- TODO: <cmd> to lua function
   vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", vim.tbl_extend("force", opts, { desc = "Show LSP references" }))
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration,           vim.tbl_extend("force", opts, { desc = "Go to declaration" }))
@@ -31,7 +31,6 @@ end
 
 function M.setup_diagnostics()
   vim.diagnostic.config({
-    virtual_text = true,
     signs = {
       text = {
         [vim.diagnostic.severity.HINT]  = "󰠠 ",
@@ -39,6 +38,9 @@ function M.setup_diagnostics()
         [vim.diagnostic.severity.WARN]  = " ",
         [vim.diagnostic.severity.ERROR] = " ",
       },
+    },
+    virtual_lines = {
+      current_line = true,
     },
     underline = true,
     update_in_insert = false,

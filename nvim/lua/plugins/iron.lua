@@ -6,7 +6,13 @@ return {
     iron.setup({
       config = {
         repl_definition = {
-          python = { command = { "ipython", "--no-autoindent" } },
+          python = { command = {
+            "uv",
+            "run",
+            "ipython",
+            "--no-autoindent"
+            },
+          },
           lua    = { command = { "lua" } },
           sh     = { command = { "zsh" } },
 	        rust   = { command = { "evcxr" } },
