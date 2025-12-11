@@ -1,0 +1,26 @@
+[user]
+	name = onestn
+	email = onestone.yang@gmail.com
+
+[core]
+	editor = nvim
+	excludesfile = ~/.config/git/ignore
+
+[init]
+    defaultBranch = main
+
+[push]
+	default = current
+
+[pull]
+    rebase = true
+
+# TODO: 이거 정확히 뭔지 알아야 함
+[merge]
+    conflictstyle = diff3
+
+[color]
+    ui = auto
+
+[credential]
+    helper = osxkeychain
