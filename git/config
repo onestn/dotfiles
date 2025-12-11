@@ -15,7 +15,6 @@
 [pull]
     rebase = true
 
-# TODO: 이거 정확히 뭔지 알아야 함
 [merge]
     conflictstyle = diff3
 
