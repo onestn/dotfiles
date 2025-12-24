@@ -14,9 +14,18 @@ return {
     ["rust-analyzer"] = {
       cargo = {
         allFeatures = true,
+        loadOutDirsFromCheck = true,
       },
       checkOnSave = {
         command = "clippy",
+      },
+      procMacro = {
+        enable = true,
+      },
+      inlayHints = {
+        bindingModeHints = { enable = true },
+        closureReturnTypeHints = { enable = "always" },
+        typeHints = { enable = true },
       },
     },
   },

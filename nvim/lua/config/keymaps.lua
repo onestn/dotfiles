@@ -6,6 +6,7 @@ local function map(lhs, desc, fn, plugin)
   })
 end
 
+
 -- =======================================================
 -- nvim-telescope/telescope: Fuzzy finder mappings
 -- =======================================================
@@ -13,6 +14,13 @@ local PLUGIN = "Telescope"
 map("<leader>ff", "Find files", function()
   require("telescope.builtin").find_files()
 end, PLUGIN)
+
+
+-- =======================================================
+-- akinsho/toggleterm: Toggle Terminal Window
+-- =======================================================
+local PLUGIN = "ToggleTerm"
+map("<leader>tt", "Toggle Terminal", "<cmd>ToggleTerm<CR>", PLUGIN)
 
 -- =======================================================
 -- nvim-tree/nvim-tree: 
