@@ -7,7 +7,8 @@ if ok_cmp then
 end
 M.capabilities = capabilities
 
-function M.on_attach(_, bufnr)
+function M.on_attach(client, bufnr)
+  print("Common on_attach called for: " .. client.name)
   local opts = {
     noremap = true,
     silent = true,
@@ -40,7 +41,7 @@ function M.setup_diagnostics()
       },
     },
     virtual_lines = {
-      current_line = true,
+      current_line = false,
     },
     underline = true,
     update_in_insert = false,
