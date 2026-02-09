@@ -40,9 +40,6 @@ function M.setup_diagnostics()
         [vim.diagnostic.severity.ERROR] = " ",
       },
     },
-    virtual_lines = {
-      current_line = false,
-    },
     underline = true,
     update_in_insert = false,
     severity_sort = true,
