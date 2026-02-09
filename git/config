@@ -20,3 +20,9 @@
 
 [color]
     ui = auto
+
+[alias]
+    co = checkout
+    br = branch
+    st = status
+    ci = commit

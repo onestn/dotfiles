@@ -3,12 +3,25 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+**/__pycache__/
 __pycache__/
 *.py[cod]
+*$py.class
 .env
 .venv/
 venv/
-.idea/
 .vscode/
+
+logs/
+*.log
+*.tmp
+
+/build/
+*.o
+*.class
+
+.env
+config/local.json
 
 **/.claude/settings.local.json
