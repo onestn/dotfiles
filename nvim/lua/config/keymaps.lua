@@ -157,6 +157,24 @@ end, PLUGIN)
 
 
 -- =======================================================
+-- coder/claudecode.nvim: Claude Code integration
+-- =======================================================
+local PLUGIN = "ClaudeCode"
+map("<leader>ac", "Toggle Claude terminal", "<cmd>ClaudeCode<cr>", PLUGIN)
+map("<leader>af", "Focus Claude terminal", "<cmd>ClaudeCodeFocus<cr>", PLUGIN)
+map("<leader>ar", "Resume previous session", "<cmd>ClaudeCode --resume<cr>", PLUGIN)
+map("<leader>aC", "Continue session", "<cmd>ClaudeCode --continue<cr>", PLUGIN)
+map("<leader>am", "Select model", "<cmd>ClaudeCodeSelectModel<cr>", PLUGIN)
+map("<leader>ab", "Add current file to context", "<cmd>ClaudeCodeAdd %<cr>", PLUGIN)
+map("<leader>aa", "Accept proposed changes", "<cmd>ClaudeCodeDiffAccept<cr>", PLUGIN)
+map("<leader>ad", "Deny proposed changes", "<cmd>ClaudeCodeDiffDeny<cr>", PLUGIN)
+
+vim.keymap.set("v", "<leader>as", "<cmd>ClaudeCodeSend<cr>", {
+  desc = "ClaudeCode: Send visual selection",
+  silent = true,
+})
+
+-- =======================================================
 -- CUSTOM MAPPINGS
 -- =======================================================
 map("gl", "Show diagnostic", function() 
