@@ -12,3 +12,4 @@
 # ignore specific files
 nvim/lazy-lock.json
 .DS_Store
+**/.claude/
