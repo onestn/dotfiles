@@ -5,7 +5,7 @@ return {
       filetype = {
         lua = "lua",
         python = "python -u",
-        rust = "cargo run",
+        rust = 'if echo "$dir" | grep -q "/examples"; then cargo run --example $fileNameWithoutExt; else cargo run; fi',
       },
     })
   end,
