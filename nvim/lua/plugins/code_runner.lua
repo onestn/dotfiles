@@ -8,14 +8,21 @@ return {
         rust = function()
           local cargo = vim.fn.findfile("Cargo.toml", ".;")
           local cmd
+
           if cargo ~= "" then
-            cmd = "cargo run"
+            local dir = vim.fn.expand("%:p:h")
+            local name = vim.fn.expand("%:t:r")
+            if dir:find("/examples") then
+              cmd = "cargo run --example " .. name
+            else
+              cmd = "cargo run"
+            end
           else
             local file = vim.fn.expand("%:p")
-            local name = vim.fn.expand("%:t:r")
-            local out = "/tmp/" .. name
+            local out = "/tmp/" .. vim.fn.expand("%:t:r")
             cmd = "rustc " .. file .. " -o " .. out .. " && " .. out
           end
+
           require("code_runner.commands").run_from_fn(cmd)
         end,
       },
