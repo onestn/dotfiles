@@ -8,6 +8,8 @@
 !wezterm/**
 !git/
 !git/**
+!zed/
+!zed/**
 
 # ignore specific files
 nvim/lazy-lock.json
