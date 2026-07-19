@@ -13,5 +13,6 @@
 
 # ignore specific files
 nvim/lazy-lock.json
+zed/prompts/
 .DS_Store
 **/.claude/
