@@ -7,6 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "proxy": "",
+  "show_edit_predictions": false,
   "languages": {
     "Rust": {
       "indent_guides": {
@@ -19,8 +21,29 @@
     "button": false
   },
   "agent": {
+    "default_profile": "ask",
+    "sidebar_side": "left",
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-5",
+      "enable_thinking": true,
+      "effort": "medium"
+    },
     "dock": "right",
-    "favorite_models": [],
+    "favorite_models": [
+      {
+        "provider": "copilot_chat",
+        "model": "claude-opus-4.8",
+        "enable_thinking": true,
+        "effort": "medium"
+      },
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "enable_thinking": true,
+        "effort": "medium"
+      }
+    ],
     "model_parameters": [],
   },
   "collaboration_panel": {
